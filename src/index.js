@@ -16,27 +16,19 @@ function BookList() {
 }
 
 const Book = () => {
+  const title = "A Amiga Genial";
+  const author = "Elena Ferrante";
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src="https://m.media-amazon.com/images/I/913D8hnF++L._AC_UL480_FMwebp_QL65_.jpg"
+        alt="Capa do Livro A amiga genial de Elena Ferrante"
+      />
+      <h1>{title}</h1>
+      <h4>{author.toUpperCase()}</h4>
+      {/* <p></p> */}
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/I/913D8hnF++L._AC_UL480_FMwebp_QL65_.jpg"
-    alt="Capa do Livro A amiga genial de Elena Ferrante"
-  />
-);
-
-const Title = () => <h1>A Amiga Genial</h1>;
-const Author = () => (
-  <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
-    Elena Ferrante
-  </h4>
-);
 
 ReactDom.render(<BookList />, document.getElementById("root"));
