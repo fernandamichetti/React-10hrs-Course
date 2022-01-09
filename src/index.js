@@ -6,17 +6,30 @@ import ReactDom from "react-dom";
 //sempre precisa retornar JSX, mesmo que seja uma tag <h4> vazia "<h4></h4>"
 //Para o react saber que é um componente precisa colocar o nome em maiuscula
 
-/*function Greeting() {
-return <h4>this is Fernanda and this is my first component</h4>;
-}*/
+//importante seguir html semantics
+//ao inves de usar várias divs ou semantic html, voce pode usar react.fragment
+function Greeting() {
+  return (
+    <React.Fragment>
+      <div className="firstOne">
+        <h4>this is Fernanda and this is my first component</h4>
+        <ul>
+          <li>
+            <a href="#">Primeiro item clicável</a>
+          </li>
+        </ul>
+      </div>
+    </React.Fragment>
+  );
+}
 
-//Outra forma de fazer a mesma coisa acima
-//cria um h1 com hello world dentro da tag
+/*Outra forma de fazer a mesma coisa acima
+cria um h1 com hello world dentro da tag
 const Greeting = () => {
   return React.createElement("h1", {}, "hello world");
 };
 
-/*Isso aqui: 
+Isso aqui: 
 const Greeting = () => {
   return React.createElement(
     "div",
