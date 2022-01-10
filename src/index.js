@@ -1,15 +1,32 @@
 import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
-const title = "A Amiga Genial";
-const author = "Elena Ferrante";
-const img =
-  "https://m.media-amazon.com/images/I/913D8hnF++L._AC_UL480_FMwebp_QL65_.jpg";
+
+const firstBook = {
+  img: "https://m.media-amazon.com/images/I/913D8hnF++L._AC_UL480_FMwebp_QL65_.jpg",
+  title: "A Amiga Genial",
+  author: "Elena Ferrante",
+};
+
+const secondBook = {
+  img: "https://m.media-amazon.com/images/I/819cdcaEQ8S._AC_UL480_FMwebp_QL65_.jpg",
+  title: "História de quem foge e quem fica:",
+  author: "Elena Ferrante",
+};
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book job="developer" />
-      <Book title="ramdom title" number={22} />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
@@ -17,12 +34,9 @@ function BookList() {
 const Book = (props) => {
   return (
     <article className="book">
-      <img src={img} alt="Capa do Livro A amiga genial de Elena Ferrante" />
-      <h1>{title}</h1>
-      <h4>{author.toUpperCase()}</h4>
-      <p>{props.job}</p>
-      <p>{props.title}</p>
-      <p>{props.number}</p>
+      <img src={props.img} />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
