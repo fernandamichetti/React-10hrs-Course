@@ -10,10 +10,12 @@ const firstBook = {
 
 const secondBook = {
   img: "https://m.media-amazon.com/images/I/819cdcaEQ8S._AC_UL480_FMwebp_QL65_.jpg",
-  title: "História de quem foge e quem fica:",
+  title: "História de quem foge e quem fica",
   author: "Elena Ferrante",
 };
 
+/*children é tudo que renderizamos entre a tag inicial e a de fechamento. 
+Importante lembrar de usar uma tag fechada e ai colocar o children e entao fechar ao invés de <Book /> precisa ser <book> </book>*/
 function BookList() {
   return (
     <section className="booklist">
@@ -21,7 +23,10 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p> Children props</p>
+      </Book>
+
       <Book
         img={secondBook.img}
         title={secondBook.title}
@@ -32,11 +37,16 @@ function BookList() {
 }
 
 const Book = (props) => {
+  //Ao inves de precisar ficar escrevendo props.img, props.title etc
+  const { img, title, author, children } = props;
+  // ou
+  // const Book = ({img, title, author}) => etc
   return (
     <article className="book">
-      <img src={props.img} />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      {children}
     </article>
   );
 };
